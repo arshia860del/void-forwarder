@@ -1,0 +1,25 @@
+[Unit]
+Description=Telegram Personal Support Notification Forwarder
+After=network.target network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=telegram
+Group=telegram
+WorkingDirectory=/opt/telegram_support_forwarder
+EnvironmentFile=/opt/telegram_support_forwarder/.env
+ExecStart=/opt/telegram_support_forwarder/venv/bin/python /opt/telegram_support_forwarder/main.py
+
+Restart=always
+RestartSec=5s
+
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/telegram_support_forwarder
+NoNewPrivileges=true
+PrivateTmp=true
+LimitNOFILE=65535
+
+[Install]
+WantedBy=multi-user.target

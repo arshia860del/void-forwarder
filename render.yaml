@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: void-support-forwarder
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    plan: free
+    region: frankfurt
+    envVars:
+      - key: TELEGRAM_API_ID
+        value: "30613075"
+      - key: TELEGRAM_API_HASH
+        value: "fbdb337cff11ac0fb3d00794eb696a40"
+      - key: NOTIFICATION_BOT_TOKEN
+        value: "8795803034:AAGqV_yu7lPuY0fbuRbv0Dcyf2nhmyaw2Q8"
+      - key: MAIN_ACCOUNT_ID
+        value: "5552044195"
+      - key: SUPPORT_ACCOUNT_LABEL
+        value: "void support"
+      - key: TIMEZONE
+        value: "Asia/Tehran"
